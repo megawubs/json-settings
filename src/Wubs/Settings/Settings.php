@@ -245,4 +245,9 @@ class Settings{
 		$json = json_encode($this->settings);
 		return json_decode($json, true);
 	}
+
+	public function getFileLocation(){
+		$base = dirname(__FILE__);
+		return $base.'/'.$this->filePath;
+	}
 }
