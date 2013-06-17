@@ -21,6 +21,7 @@ $s = new Setting();
 //gets the value of bar in the foo settings
 $value = $s->get('foo.bar'); //foo
 $values = $s->get('foo.bars'); //foos
+```
 
 ### Todo:
 [X] Make it a separate package
