@@ -41,7 +41,7 @@ class Settings{
 			}
 		}
 		if($settings){
-			$this->create($settings);
+			$this->fill($settings);
 		}
 		$this->loadSettings();
 	}
@@ -52,7 +52,7 @@ class Settings{
 	 * structure of the settings file
 	 * @throws \Exception If provided json string is invalid
 	 */
-	public function create($settings){
+	public function fill($settings){
 		if(is_array($settings)){
 			$settings = json_encode($settings);
 		}

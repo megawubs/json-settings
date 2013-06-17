@@ -28,7 +28,7 @@ class SettingsTest extends \PHPUnit_Framework_TestCase{
 
 	public function testSettingSettingsWithString(){
 		$settings = '{"trakt":{"username":"","api":"","password":"","email": ""}}';
-		$this->assertInstanceOf('Wubs\Settings\Settings', $this->s->create($settings));
+		$this->assertInstanceOf('Wubs\Settings\Settings', $this->s->fill($settings));
 		$this->assertTrue($this->s->set('trakt.username', 'megawubs'));
 		$this->assertEquals('megawubs', $this->s->get('trakt.username'));
 	}
@@ -38,12 +38,12 @@ class SettingsTest extends \PHPUnit_Framework_TestCase{
 	 */
 	public function testSettingsSettingsWithInvalidJson(){
 		$settings = '"trakt":{"username":"","api":"","password":"","email" ""}}';
-		$this->s->create($settings);
+		$this->s->fill($settings);
 	}
 
 	public function testSettingSettingsWithArray(){
 		$settings = array('trakt'=>array('username'=>'megawubs', 'api'=>'', 'password'=>'', 'email'=>''));
-		$this->assertEquals('megawubs', $this->s->create($settings)->get('trakt.username'));
+		$this->assertEquals('megawubs', $this->s->fill($settings)->get('trakt.username'));
 	}
 
 	public function testAppendingExsistingSettingGroupWithNewKeyValuePair(){
@@ -74,9 +74,10 @@ class SettingsTest extends \PHPUnit_Framework_TestCase{
 	public function testCreatingSettingsFileOnInitationWithJsonString(){
 		unlink(self::$file);
 		unset($this->s);
-		$settings = '{"trakt":{"username":"","api":"","password":"","email": ""}}';
+		$settings = array('foo'=>array('bar'=>'foo', 'bars'=>'foos'));
 		$this->s = new Settings($settings);
-		$this->assertArrayHasKey('trakt', $this->s->getSettingsAsArray());
+		$this->assertArrayHasKey('foo', $this->s->getSettingsAsArray());
+		print_r($this->s->getSettingsAsArray());
 	}
 
 	public static function tearDownAfterClass(){
