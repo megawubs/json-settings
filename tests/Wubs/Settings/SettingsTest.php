@@ -79,6 +79,10 @@ class SettingsTest extends \PHPUnit_Framework_TestCase{
 		$this->assertArrayHasKey('foo', $this->s->getSettingsAsArray());
 	}
 
+	public function testGetFileLocation(){
+		$this->assertFileExists($this->s->getFileLocation());
+	}
+
 	public static function tearDownAfterClass(){
 		$s = new Settings();
 		$s->reset(self::$content);
