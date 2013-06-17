@@ -1,0 +1,15 @@
+{
+    "name": "wubs/settings",
+    "description": "Package to easily manage a json setting file",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bram Wubs",
+            "email": "bwubs@me.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
