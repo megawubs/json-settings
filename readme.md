@@ -66,12 +66,12 @@ To add new settings to a existing group goes as follows
 
 ```PHP
 //we assume the settings file is already filled
-$s->appendGroup('foo','pi');
+$s->appendGroup('foo','cackes');
 ```
-The group foo has now a new key value pair with the key `'pi'`. The value defaults to `''`
+The group foo has now a new key value pair with the key `'cackes'`. The value defaults to `''`
 If you want to add a default value use a third parameter like this
 ```PHP
-$s->appendGroup('foo','pi','cheesecake');
+$s->appendGroup('foo','cackes','cheesecake');
 ```
 
 ### Add a new group
