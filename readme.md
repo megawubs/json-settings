@@ -17,9 +17,10 @@ The json file is build like this:
 ## usage example:
 
 ```PHP
-$s = new Setting();
+$s = new Settings();
 //gets the value of bar in the foo settings
 $value = $s->get('foo.bar'); //foo
+//gets the value of bars in the foo settings
 $values = $s->get('foo.bars'); //foos
 ```
 
