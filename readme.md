@@ -13,8 +13,22 @@ The json file is build like this:
 	}
 }
 ```
+Where `foo` is a group and `bar` a key value pair.
+
+It is possible to append groups and add new groups.
 
 ## usage examples
+
+### Getting settings
+
+Getting a setting is straight forward.
+
+```PHP
+//gets the value of bar in the foo group
+$value = $s->get('foo.bar'); //foo
+//gets the value of bars in the foo group
+$values = $s->get('foo.bars'); //foos
+```
 
 ### Filling the settings file
 
@@ -45,16 +59,7 @@ $settings = array('foo'=>array('bar'=>'foo', 'bars'=>'foos'));
 $s = new Settings(); 
 $s->fill($settings);
 ```
-### Getting settings
 
-Getting a setting is straight forward.
-
-```PHP
-//gets the value of bar in the foo settings
-$value = $s->get('foo.bar'); //foo
-//gets the value of bars in the foo settings
-$values = $s->get('foo.bars'); //foos
-```
 ### Appending groups
 
 To add new settings to a existing group goes as follows
@@ -71,7 +76,7 @@ $s->appendGroup('foo','pi','cheesecake');
 
 ### Add a new group
 
-To add a new group to the settings file, and give it some default settings.
+Adding a new group to the settings file, and give it some default settings.
 
 ```PHP
 $s->addGroup('files')->appendGroup('files', 'logfile', '/location/to/file.log');
