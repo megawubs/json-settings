@@ -77,7 +77,6 @@ class SettingsTest extends \PHPUnit_Framework_TestCase{
 		$settings = array('foo'=>array('bar'=>'foo', 'bars'=>'foos'));
 		$this->s = new Settings($settings);
 		$this->assertArrayHasKey('foo', $this->s->getSettingsAsArray());
-		print_r($this->s->getSettingsAsArray());
 	}
 
 	public static function tearDownAfterClass(){
