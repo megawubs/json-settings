@@ -24,6 +24,9 @@ $values = $s->get('foo.bars'); //foos
 ```
 
 ### Todo:
-[X] Make it a separate package
-[X] Add functionality to extend the json settings
-[X] Make the settings file dynamic 
+
+- [x] Make it a separate package
+
+- [ ] Add functionality to extend the json settings
+
+- [ ] Make the settings file dynamic 
