@@ -1,0 +1,5 @@
+<phpunit bootstrap="vendor/autoload.php">
+	<testsuite name="settings">
+		<directory>test/Wubs/Settings</directory>
+	</testsuite>
+</phpunit>
