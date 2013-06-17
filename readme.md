@@ -18,7 +18,7 @@ The json file is build like this:
 
 ```PHP
 $s = new Setting();
-//gets the api key from trakt
+//gets the value of bar in the foo settings
 $value = $s->get('foo.bar'); //foo
 $values = $s->get('foo.bars'); //foos
 
