@@ -14,7 +14,7 @@ The json file is build like this:
 }
 ```
 
-## usage example:
+## usage examples
 
 ### Filling the settings file
 
@@ -38,7 +38,7 @@ print_r($s->getSettingsAsArray());
  *
  */
 ```
-or by calling the fill method
+Or by calling the fill method
 
 ```PHP
 $settings = array('foo'=>array('bar'=>'foo', 'bars'=>'foos'));
@@ -69,7 +69,9 @@ If you want to add a default value use a third parameter like this
 $s->appendGroup('foo','pi','cheesecake');
 ```
 
-### Add a new group and give it some settings
+### Add a new group
+
+To add a new group to the settings file, and give it some default settings.
 
 ```PHP
 $s->addGroup('files')->appendGroup('files', 'logfile', '/location/to/file.log');
@@ -84,3 +86,5 @@ $s->addGroup('files')->appendGroup('files', 'logfile', '/location/to/file.log');
 - [x] Make the settings file dynamic 
 
 - [ ] Allow greater settings depth
+
+- [ ] Allow arrays when adding a new group
