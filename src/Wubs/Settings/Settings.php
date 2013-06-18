@@ -71,12 +71,18 @@ class Settings{
 	 * @return string       the value of the setting
 	 * @throws \Exception If requested setting doesn't exist
 	 */
-	public function get($name){
+	public function get($name, $prettify = true){
 		$error = "Setting with name: $name not present in the settings";
 		if(strstr($name, '.')){
 			$settings = $this->parseSettingName($name);
 			if($this->settingsExsists($settings)){
-				return $this->prettify($this->settings->$settings[0]->$settings[1]);
+				if($prettify){
+					return $this->prettify($this->settings->$settings[0]->$settings[1]);
+				}
+				else{
+					return $this->objectToArray($this->settings->$settings[0]->$settings[1]);
+				}
+				
 			}
 			else{
 				throw new \Exception($error);
@@ -84,7 +90,13 @@ class Settings{
 		}
 		else{
 			if(property_exists($this->settings, $name)){
-				return $this->settings->$name;
+				if($prettify){
+					echo "bwhaaa\n";
+					return $this->settings->$name;
+				}
+				else{
+					return $this->objectToArray($this->settings->$name);
+				}
 			}
 			else{
 				throw new \Exception($error);
@@ -250,4 +262,16 @@ class Settings{
 		$base = dirname(__FILE__);
 		return $base.'/'.$this->filePath;
 	}
+
+	private function objectToArray($var) {
+			if (is_object($var)) {
+				$var = get_object_vars($var);
+			}
+			if (is_array($var)) {
+				return array_map('self::objectToArray', $var);
+			}
+			else {
+				return $var;
+			}
+		}
 }

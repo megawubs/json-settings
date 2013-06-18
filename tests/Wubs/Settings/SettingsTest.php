@@ -71,6 +71,16 @@ class SettingsTest extends \PHPUnit_Framework_TestCase{
 		$this->assertArrayHasKey('foo', $this->s->getSettingsAsArray());
 	}
 
+	public function testGetSettingWithoudPrettify(){
+		$trakt = $this->s->get('trakt', false);
+		$this->assertInternalType('array', $trakt);
+	}
+
+	public function testGetSettingsWithPrettify(){
+		$trakt = $this->s->get('trakt.username');
+		$this->assertInternalType('string', $trakt);
+	}
+
 	public function testCreatingSettingsFileOnInitationWithJsonString(){
 		unlink(self::$file);
 		unset($this->s);
